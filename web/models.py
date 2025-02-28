@@ -543,7 +543,7 @@ class AchievementTab(models.Model):
     category = models.ForeignKey(AchievementCategory, on_delete=models.CASCADE)
     title = models.CharField(max_length=70)
     order = models.PositiveIntegerField(default=1, help_text='Display order of the tab')
-    content = models.TextField()
+    content = RichTextUploadingField(config_name='default')
     created_at = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated_at = models.DateTimeField(auto_now_add=False, auto_now=True)
 
