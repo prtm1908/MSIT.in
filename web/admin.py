@@ -170,13 +170,6 @@ class AchievementCategoryAdmin(admin.ModelAdmin):
     search_fields = ['name']
     prepopulated_fields = {'slug': ('name',)}
 
-    def get_queryset(self, request):
-        qs = super(AchievementCategoryAdmin, self).get_queryset(request)
-        if request.user.is_superuser or request.user.userdepartment.department == 'All':
-            return qs
-        else:
-            return qs.none()
-
 class EventAdmin(admin.ModelAdmin):
     list_display = ['title', 'date']
     ordering = ('-date',)

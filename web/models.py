@@ -517,19 +517,6 @@ class AchievementCategory(models.Model):
             self.slug = slugify(self.name)
         super(AchievementCategory, self).save(*args, **kwargs)
 
-    def clean(self):
-        super(AchievementCategory, self).clean()
-        req = current_request()
-        try:
-            if req.user.is_superuser or req.user.userdepartment.department == 'All':
-                return self
-            else:
-                raise ValidationError(
-                "You don't have access to change this Database")
-        except:
-            raise ValidationError(
-            "You don't have access to change this Database")
-
     class Meta:
         verbose_name = 'Right - Achievement Category'
         verbose_name_plural = 'Right - Achievement Categories'
