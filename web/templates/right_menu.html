@@ -22,6 +22,21 @@
     </div>
 
     <div class="panel panel-default">
+        <div class="panel-heading" style="background-color: #40E0D0; color: white;">
+            <h3 class="panel-title">Achievements</h3>
+        </div>
+        <div class="panel-body">
+            <ul class="list-unstyled">
+                {% for category in achievement_categories %}
+                    <li>
+                        <a href="{% url 'achievement_category' category.id %}">{{ category.name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
           <h4 class="panel-heading" style="margin:0; background-color: turquoise;"><strong style="color: white;">Notices</strong></h4>
         <div class="als-container panel-body" id="demo4">
             <div class="als-viewport">
