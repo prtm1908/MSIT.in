@@ -85,18 +85,14 @@ WSGI_APPLICATION = 'msit.wsgi.application'
 #  }
 
 DATABASES = {
-      'default': {
-          'ENGINE': os.environ['DB_ENGINE'],
-          'NAME': os.environ['DB_NAME'],
-          'USER': os.environ['DB_USER'],
-          'PASSWORD': os.environ['DB_PASS'],
-          'HOST': os.environ['DB_HOST'],
-          'PORT': os.environ['DB_PORT'],
-          'OPTIONS': {
-              'options': '-c timezone=UTC'
-          },
-          'TIMEZONE': 'UTC'
-      }
+    'default': {
+        'ENGINE': os.environ['DB_ENGINE'],
+        'NAME': os.environ['DB_NAME'],
+        'USER': os.environ['DB_USER'],
+        'PASSWORD': os.environ['DB_PASS'],
+        'HOST': os.environ['DB_HOST'],
+        'PORT': os.environ['DB_PORT']
+    }
 }
 
 
@@ -131,6 +127,10 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+# Force PostgreSQL to use UTC:
+import django.db.backends.postgresql.base
+django.db.backends.postgresql.base.DatabaseWrapper.timezone_name = 'UTC'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
