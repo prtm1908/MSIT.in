@@ -91,7 +91,11 @@ DATABASES = {
           'USER': os.environ['DB_USER'],
           'PASSWORD': os.environ['DB_PASS'],
           'HOST': os.environ['DB_HOST'],
-          'PORT': os.environ['DB_PORT']
+          'PORT': os.environ['DB_PORT'],
+          'OPTIONS': {
+              'options': '-c timezone=UTC'
+          },
+          'TIMEZONE': 'UTC'
       }
 }
 
@@ -120,7 +124,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Asia/Kolkata'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
