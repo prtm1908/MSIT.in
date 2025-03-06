@@ -165,9 +165,21 @@ CKEDITOR_CONFIGS = {
             ['Bold', 'Italic', 'Underline'],
             ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
             ['Link', 'Unlink'],
+            ['Image', 'Table', 'HorizontalRule'],
+            ['TableTools', 'Table', '-', 'Table Properties', 'Table Cell Properties'],
             ['RemoveFormat', 'Source']
         ],
         'height': 300,
         'width': 800,
+        'removePlugins': 'stylesheetparser',
+        'allowedContent': True,
+        'extraPlugins': 'uploadimage,table,tableresize,tabletools',
+        'uploadUrl': '/ckeditor/upload/',
+        'filebrowserUploadUrl': '/ckeditor/upload/',
+        'filebrowserBrowseUrl': '/ckeditor/browse/',
+        'table_defaultBorder': 1,
+        'table_defaultCellPadding': 5,
+        'table_defaultCellSpacing': 0,
+        'table_responsive': True,
     }
 }
