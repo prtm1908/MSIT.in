@@ -55,6 +55,21 @@ def syllabus(request):
 
 def facilities(request):
     context = getContext()
+    
+    # Get all departments
+    departments = Department.objects.all()
+    department_labs = {}
+    
+    # For each department, get their "Labs" tab content
+    for dept in departments:
+        try:
+            lab_tab = dept.departmentpage_set.filter(title__icontains='Lab').first()
+            if lab_tab:
+                department_labs[dept.department] = lab_tab.content
+        except:
+            continue
+    
+    context['department_labs'] = department_labs
     return render(request, 'facilities.html', context=context)
 
 
