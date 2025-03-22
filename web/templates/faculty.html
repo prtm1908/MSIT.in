@@ -1,5 +1,25 @@
 {% extends 'base.html' %} {% load static %} {% block navigation %} {% include 'navbar.html' %} {% endblock %} {% block body %}
 <div class="container">
+    <style>
+        /* Add styles to control faculty content overflow */
+        .firstshift-table td {
+            max-width: 100%;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .firstshift-table td p {
+            max-width: 100%;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .faculty-description {
+            max-width: 100%;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+    </style>
     <div class="row">
         {% block left_nav %} {% include 'left_menu.html' %} {% endblock %} {% block main_body %}
         <div class="col-md-7 col-sm-12 col-xs-12 col-lg-8 centralcontent">
@@ -72,7 +92,7 @@
 <!-- 					    <p>DOJ: {{ i.date_of_joining|date:"d/m/Y" }}</p> -->
 					    {% endif %}
                                         <p style="color: darkblue;">{{i.email}}</p>
-					<p style="color: darkblue;">{{i.description | safe}}</p>
+					<div class="faculty-description">{{i.description | safe}}</div>
                                         
                                     </td>
                                 </tr>
