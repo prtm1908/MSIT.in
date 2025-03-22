@@ -1,21 +1,38 @@
 {% extends 'base.html' %} {% load static %} {% block navigation %} {% include 'navbar.html' %} {% endblock %} {% block body %}
 <div class="container">
     <style>
-        /* Add styles to control faculty content overflow */
-        .firstshift-table td {
-            max-width: 100%;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
+        /* Updated styles for better content containment */
+        .firstshift-table {
+            width: 100%;
+            table-layout: fixed;
         }
         
-        .firstshift-table td p {
-            max-width: 100%;
+        .firstshift-table td {
             word-wrap: break-word;
             overflow-wrap: break-word;
+            max-width: 100%;
+        }
+        
+        .firstshift-table td:first-child {
+            width: 120px;
+            min-width: 120px;
+        }
+        
+        .firstshift-table td:last-child {
+            width: calc(100% - 120px);
         }
         
         .faculty-description {
-            max-width: 100%;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            width: 100%;
+            display: block;
+        }
+        
+        .faculty-description p {
+            margin: 0;
+            padding: 0;
+            width: 100%;
             word-wrap: break-word;
             overflow-wrap: break-word;
         }
