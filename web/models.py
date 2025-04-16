@@ -269,19 +269,19 @@ class LatestNews(models.Model):
 
     def clean(self):
         super(LatestNews, self).clean()
-        if str(self.link) == "" and str(self.files) == "":
+        if not self.link and not self.files:
             raise ValidationError(
                 "Latest News must have either a link to redirect or a file attached to it")
-        elif str(self.link) != "" and str(self.files) != "":
+        elif self.link and self.files:
             raise ValidationError(
                 "Please enter either a link to redirect or a file to attach with the News item.")
         else:
-            if str(self.additional_title) == "":
+            if not self.additional_title:
                 return self
-            if str(self.additional_link) == "" and str(self.additional_files) == "":
+            if not self.additional_link and not self.additional_files:
                 raise ValidationError(
-                    "Addtional Title must have either a link to redirect or a file attached to it")
-            elif str(self.link) != "" and str(self.files) != "":
+                    "Additional Title must have either a link to redirect or a file attached to it")
+            elif self.additional_link and self.additional_files:
                 raise ValidationError(
                     "Please enter either a link to redirect or a file to attach with the Additional Title.")
             else:

@@ -52,6 +52,7 @@ class LatestNewsAdmin(admin.ModelAdmin):
     list_filter = ('new', 'visible', )
     list_editable = ('new', 'visible',)
     search_fields = ['title']
+    fields = ('title', 'link', 'files', 'new', 'visible', 'additional_title', 'additional_link', 'additional_files')
 
 class NoticeAdmin(admin.ModelAdmin):
     list_display = ['title', 'new', 'visible', 'created_at', 'updated_at']
