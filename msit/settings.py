@@ -162,6 +162,7 @@ CKEDITOR_CONFIGS = {
         'skin': 'moono',
         'toolbar': 'Custom',
         'toolbar_Custom': [
+            ['Font', 'FontSize'],
             ['Bold', 'Italic', 'Underline'],
             ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
             ['Link', 'Unlink'],
@@ -173,7 +174,8 @@ CKEDITOR_CONFIGS = {
         'width': 800,
         'removePlugins': 'stylesheetparser',
         'allowedContent': True,
-        'extraPlugins': 'uploadimage,table,tableresize,tabletools',
+        'extraPlugins': 'uploadimage,table,tableresize,tabletools,font',
+        'font_names': 'Arial/Arial, Helvetica, sans-serif;Comic Sans MS/Comic Sans MS, cursive;Courier New/Courier New, Courier, monospace;Georgia/Georgia, serif;Times New Roman/Times New Roman, Times, serif;Verdana/Verdana, Geneva, sans-serif',
         'uploadUrl': '/ckeditor/upload/',
         'filebrowserUploadUrl': '/ckeditor/upload/',
         'filebrowserBrowseUrl': '/ckeditor/browse/',
