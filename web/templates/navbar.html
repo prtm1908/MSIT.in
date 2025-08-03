@@ -77,6 +77,14 @@
     #blacknavlist{
         float:none;
         margin:0 auto;
-        display:table;
+        width:85%; /* leave some blue space on both sides */
+        display:flex;
+        justify-content:center;
+        flex-wrap:wrap;
+        padding-left:0; /* remove bootstrap left padding */
+    }
+    /* Remove default left float for list items inside the blue nav so lines center when wrapped */
+    #blacknavlist > li{
+        float:none;
     }
 </style>
