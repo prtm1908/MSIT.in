@@ -137,14 +137,16 @@ class PrimaryNavigationMenu(models.Model):
 
     def clean(self):
         super(PrimaryNavigationMenu, self).clean()
-        if str(self.link) == "" and str(self.files) == "":
+        # Treat both empty string and None as "no value" for validation purposes
+        has_link = bool(self.link)
+        has_file = bool(self.files)
+        if not has_link and not has_file:
             raise ValidationError(
                 "Navigation menu must have either a link to redirect or a file attached to it")
-        elif str(self.link) != "" and str(self.files) != "":
+        if has_link and has_file:
             raise ValidationError(
                 "Please enter either a link to redirect or a file to attach with the Menu item.")
-        else:
-            return self
+        return self
 
     def save(self, *args, **kwargs):
         self.full_clean()
@@ -171,14 +173,16 @@ class SecondaryNavigationMenu(models.Model):
 
     def clean(self):
         super(SecondaryNavigationMenu, self).clean()
-        if str(self.link) == "" and str(self.files) == "":
+        # Treat both empty string and None as "no value" for validation purposes
+        has_link = bool(self.link)
+        has_file = bool(self.files)
+        if not has_link and not has_file:
             raise ValidationError(
                 "Navigation menu must have either a link to redirect or a file attached to it")
-        elif str(self.link) != "" and str(self.files) != "":
+        if has_link and has_file:
             raise ValidationError(
                 "Please enter either a link to redirect or a file to attach with the Menu item.")
-        else:
-            return self
+        return self
 
     def save(self, *args, **kwargs):
         self.full_clean()
