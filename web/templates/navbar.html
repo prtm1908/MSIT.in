@@ -19,7 +19,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="background-color: #EA9320;">
             <ul class="nav navbar-nav" style="">
                 {% for nav in primary_navigation_menu %}
-                     <li style="font-weight: 600;"><a {% if nav.link %} href="{{ nav.link }}" {% else %} href="{{ nav.files.url }}" {% endif %} >{{ nav.title }}</a></li>
+                     <li style="font-weight: 600;"><a {% if nav.link %} href="{{ nav.link }}" {% elif nav.files %} href="{{ nav.files.url }}" {% endif %}>{{ nav.title }}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -48,7 +48,7 @@
         <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-2" style="background:#098CC4;">
             <ul class="nav navbar-nav" id="blacknavlist">
                 {% for nav in secondary_navigation_menu %}
-               <li style="font-weight: 600;"><a {% if nav.link %} href="{{ nav.link }}" {% else %} href="{{ nav.files.url }}" {% endif %} >{{ nav.title }}</a></li>
+               <li style="font-weight: 600;"><a {% if nav.link %} href="{{ nav.link }}" {% elif nav.files %} href="{{ nav.files.url }}" {% endif %}>{{ nav.title }}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -57,7 +57,7 @@
     {% if marquee %}
     <div class="marquee-text" style="">
         <marquee class="col-md-12">
-            {% for text in marquee %} •&nbsp;<a href="{% if text.link %}{{text.link}}{% else %}{{text.files.url}}{% endif %}">{{ text.title }}</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% endfor %}
+            {% for text in marquee %} •&nbsp;<a href="{% if text.link %}{{text.link}}{% elif text.files %}{{text.files.url}}{% endif %}">{{ text.title }}</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% endfor %}
         </marquee>
     </div>
     {% endif %}
